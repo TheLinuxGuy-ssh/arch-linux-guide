@@ -11,4 +11,9 @@ A simple guide to help you install arch seamlessly
 - [Booting into the new Installation](#Booting-into-the-new-Installation)
 
 ## Installation Media Creation
+## Network Configuration
+## Partitioning
+## Installing Base System
+## Configuring the Fresh Installation
+## Booting into the new Installation
 
