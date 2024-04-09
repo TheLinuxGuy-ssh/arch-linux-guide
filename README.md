@@ -44,9 +44,34 @@ Great! You have created your Arch Linux Installation Media
 ## Booting with Installation Media
 
  - Shutdown your PC from your current OS
- - Insert your
+ - Connect your USB Pendrive to your Computer
+ - Turn on your computer and Boot into your Computer's BIOS and enable USB Boot
+ - Save the BIOS settings
+ - The computer will automatically boot from the pendrive
 
 ## Network Configuration
+
+ - Once the OS fully boots up begin with the below process
+
+ - Start with Entering in the Network Config Utility, Type `iwctl` and press ENTER
+   ``` bash
+   iwctl
+   ```\
+ - Enter `station wlan0 connect <wifi name>` to connenct to your Wi-fi router
+   ``` bash
+   station wlan0 connect <wifi name>
+   ```
+ - Enter `station wlan0 show status` to verify the computer's connection to the router
+   ``` bash
+   station wlan0 show status
+   ```
+ - After succesfully connecting to your router, Simply exit the Utility by typing `exit`
+   ``` bash
+   exit
+   ```
+
+   This completes the network configuration part of the installation process!
+
 ## Partitioning
 ## Installing Base System
 ## Configuring the Fresh Installation
