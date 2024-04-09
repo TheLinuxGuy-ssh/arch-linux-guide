@@ -85,6 +85,36 @@ Great! You have created your Arch Linux Installation Media
 | 2  | 4-16GB |   SWAP     | N/A       |
 | 3  | Custom |   EXT4     | /         |
 
+ - Enter `lsblk` to check the hard drive which you want to partition
+   
+ - Enter `cfdisk /dev/sdX` to Open the disk partition utility
+   
+ - Replace the X with the letter of the drive which you want to partition
+
+If The utility asks you to select a label type, <br> 
+choose `gpt` from the options by navigating with the arrow keys
+
+- For **Partition 1** Select the new option for creating a partition
+
+- Enter the disk size as `100M`
+
+- For **Partition 2**, Again select the `new` option
+
+- Partition 2 will be used for virtual memory, the Recommended Size is 8GB but you can maximise it to 16GB RAM
+
+- If your preferred disk size is in Gigibyte size, use the keyword `G` such as `8G` for specifying the partition size.
+
+- For **Partition 3**, Selecting the same option...
+
+- This partition is where you will keep all your data and also where linux will be installed
+
+- Partition size of **8GB** is minimum, but **32GB AND ABOVE** is recommended for daily usage
+
+#### Formating the partitions
+
+
+
+
 ## Installing Base System
 ## Configuring the Fresh Installation
 ## Booting into the new Installation
