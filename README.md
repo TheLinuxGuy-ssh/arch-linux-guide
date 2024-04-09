@@ -30,7 +30,7 @@ Now open the Media Creation Tool `balena etcher` which you just installed.
 
  - Click on `Flash from File` and choose the Arch Linux ISO file which you just downloaded
 
-<img width="320" alt="image" src="https://github.com/rohansharma-developer/arch-linux-guide/assets/107614947/b1b6ac18-c8e6-48c2-b262-e0a5035813bb">
+<img width="520" alt="image" src="https://github.com/rohansharma-developer/arch-linux-guide/assets/107614947/b1b6ac18-c8e6-48c2-b262-e0a5035813bb">
 
 > [!CAUTION]
 > This process will wipe out all your data on the pendrive. Please backup your data before proceeding
