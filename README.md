@@ -56,7 +56,7 @@ Great! You have created your Arch Linux Installation Media
  - Start with Entering in the Network Config Utility, Type `iwctl` and press ENTER
    ``` bash
    iwctl
-   ```\
+   ```
  - Enter `station wlan0 connect <wifi name>` to connenct to your Wi-fi router
    ``` bash
    station wlan0 connect <wifi name>
