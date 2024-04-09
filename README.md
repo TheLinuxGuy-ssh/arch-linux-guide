@@ -69,10 +69,22 @@ Great! You have created your Arch Linux Installation Media
    ``` bash
    exit
    ```
+<center>
 
-   This completes the network configuration part of the installation process!
+**This completes the network configuration part of the installation process!**
+
+</center>
 
 ## Partitioning
+
+ - Now we need to create three partition on a hard disk. For reference, here is a table below:
+
+| ID | Size   | Filesystem | Directory |
+| -- | ------ | ---------- | --------  |
+| 1  | 100MB  |   FAT32    | /boot/efi |
+| 2  | 4-16GB |   SWAP     | N/A       |
+| 3  | Custom |   EXT4     | /         |
+
 ## Installing Base System
 ## Configuring the Fresh Installation
 ## Booting into the new Installation
