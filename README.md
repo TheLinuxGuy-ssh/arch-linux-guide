@@ -42,6 +42,10 @@ Now begin the Media Creation Process by clicking on the `Flash` Button. Let the 
 Great! You have created your Arch Linux Installation Media
 
 ## Booting with Installation Media
+
+ - Shutdown your PC from your current OS
+ - Insert your
+
 ## Network Configuration
 ## Partitioning
 ## Installing Base System
