@@ -112,9 +112,47 @@ choose `gpt` from the options by navigating with the arrow keys
 
 #### Formating the partitions
 
+- Start with formatting the partition tables according to the table above
 
-
+``` bash 
+mkfs.[format] -s 32 /dev/sdXX
+```
 
 ## Installing Base System
+``` bash 
+pacstrap -K /mnt base linux linux-firmware
+```
+
 ## Configuring the Fresh Installation
+
+- Generate an fstab file (use -U or -L to define by UUID or labels, respectively)
+
+``` bash
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+- Change user to new installation
+
+``` bash
+arch-chroot /mnt
+```
+
+- Set the time zone for the newly created installation
+
+``` bash
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```
+
+- Synchronise the changed timezone settings
+
+``` bash
+hwclock --systohc
+```
+
+``` bash
+locale-gen
+```
+
+
+
 ## Booting into the new Installation
