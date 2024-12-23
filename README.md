@@ -114,13 +114,48 @@ choose `gpt` from the options by navigating with the arrow keys
 
 - Start with formatting the partition tables according to the table above
 
+- Format the first partition from the table above with the following and the replace the 'X' with the installation disk and the parition number:
+
 ``` bash 
-mkfs.[format] -s 32 /dev/sdXX
+mkfs.fat -F 32 /dev/sdX
 ```
+
+- Format the second partition to **EXT4** Format
+
+``` bash 
+  mkfs.ext4 /dev/sdX
+```
+
+- Format the third partition to initialise the swap
+
+``` bash 
+mkswap /dev/sdX
+```
+
+## Mount the Partitions
+
+- Mount the **Partition 2 [Main Partition][EXT4]** to `/mnt`
+
+``` bash
+mount /dev/sdX /mnt
+```
+
+- Mount the **Partition 1 [EFI Partition][FAT32]** to `/mnt/boot`
+
+``` bash
+mount /dev/sdX /mnt/boot
+```
+
+- Mount the **Partition 3 [Swap Partition][Linux Swap]**
+
+``` bash
+swapon /dev/sdaX
+```
+
 
 ## Installing Base System
 ``` bash 
-pacstrap -K /mnt base linux linux-firmware
+pacstrap -K /mnt base linux linux-firmware nano
 ```
 
 ## Configuring the Fresh Installation
@@ -148,11 +183,33 @@ ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 ``` bash
 hwclock --systohc
 ```
+- Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales:
+
+``` bash
+nano /etc/locale.gen
+```
+
+- After editing, close the editor by pressing `CTRL+X`, then press `y` and then press `ENTER`
+
+- Generate the locales by running:
 
 ``` bash
 locale-gen
 ```
 
+- Create the hostname file,  and then give it any name:
+
+``` bash
+nano /etc/hostname
+```
+
+- After editing, close the editor by pressing `CTRL+X`, then press `y` and then press `ENTER`
+
+- Set a password for the `SUDO` user by the following command:
+
+``` bash
+passwd
+```
 
 
 ## Booting into the new Installation
