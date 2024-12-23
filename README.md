@@ -155,7 +155,7 @@ swapon /dev/sdaX
 
 ## Installing Base System
 ``` bash 
-pacstrap -K /mnt base linux linux-firmware nano
+pacstrap -K /mnt base linux linux-firmware sof-firmware base-devel grub efibootmgr nano networkmanager
 ```
 
 ## Configuring the Fresh Installation
@@ -211,5 +211,77 @@ nano /etc/hostname
 passwd
 ```
 
+- Create your user account on the installation (Replace the `username` with your own)
+
+``` bash
+useradd -m -G wheel -s /bin/bash username
+```
+
+- Set the password for the newly created user account (Replace the `username` with your account username)
+
+``` bash
+passwd username
+```
+
+- Edit the sudoers file to provide your newly created user SUDO or Admin Privelages
+
+``` bash
+EDITOR=nano visudo
+```
+
+- Uncomment the line saying `wheel ALL(ALL) ALL` and then exit the editor
+
+- Change terminal user to the newly created one:
+
+``` bash
+su username
+```
+
+- Update the package database (the command will request the user to enter the password for the current account before proceeding)
+
+``` bash
+sudo pacman -Syu
+```
+
+## Enabling Services
+
+- Enable NetworkManager (responsible for wifi management)
+
+``` bash
+systemctl enable NetworkManager
+```
+
+## Installing BootLoader
+
+- Install the `GRUB` bootloader to the disk where linux is installed (don't specify any partition number)
+
+``` bash
+grub-install /dev/sdaX
+```
+
+- Generate the GRUB configuration file:
+
+``` bash
+grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 ## Booting into the new Installation
+
+- Detach the chroot interface by executing exit two times
+
+``` bash
+exit
+exit
+```
+
+- Unmount all mounted drives and partitions
+
+``` bash
+umount -a
+```
+
+- Finally, reboot your pc:
+
+``` bash
+reboot
+```
